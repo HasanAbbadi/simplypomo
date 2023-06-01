@@ -36,10 +36,11 @@ const startTimer = (duration) => {
 
   interval = setInterval(() => {
     duration -= 1
-    const { minutes, seconds } = convertTime(duration)
     displayElement.classList.add("active")
-    minutesInput.value = minutes
-    secondsInput.value = seconds
+
+    const { minutes, seconds } = convertTime(duration)
+    minutesInput.value = String(minutes).padStart(2, '0')
+    secondsInput.value = String(seconds).padStart(2, '0')
   }, 1000)
 }
 
