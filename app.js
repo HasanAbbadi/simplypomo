@@ -7,8 +7,8 @@ let interval;
 
 
 const activate = () => {
-  secondsInput.setAttribute('readonly', `${isPaused}`)
-  minutesInput.setAttribute('readonly', `${isPaused}`)
+  secondsInput.readOnly = isPaused
+  minutesInput.readOnly = isPaused
 
   if (isPaused) {
     isPaused = false
