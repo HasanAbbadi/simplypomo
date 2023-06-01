@@ -1,0 +1,34 @@
+:root {
+  color-scheme: light dark;
+  
+  --clr-primary: black;
+  --clr-secondary: whitesmoke;
+  --clr-accent: skyblue;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --clr-primary: whitesmoke;
+    --clr-secondary: black;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box
+}
+
+body {
+  background: var(--clr-primary);
+  color: var(--clr-secondary);
+}
+
+
+.active {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;    
+  pointer-events: none;
+}
