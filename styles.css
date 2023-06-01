@@ -1,14 +1,17 @@
 :root {
   color-scheme: light dark;
   
-  --clr-primary: black;
-  --clr-secondary: whitesmoke;
-  --clr-accent: skyblue;
+  --clr-primary: #1D201F;
+  --clr-secondary: #EAD2AC;
+
+  --ff-base: 'Josefin Sans', sans-serif;
+  --fs-primary: 4rem;
+  --fs-secondary: 1rem;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --clr-primary: whitesmoke;
+    --clr-primary: #CCC9DC;
     --clr-secondary: black;
   }
 }
@@ -16,19 +19,56 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
+  height: 100vh;
+  font-size: var(--fs-secondary);
+  display: grid;
+  place-items: center;
+}
+
+body, input {
   background: var(--clr-primary);
   color: var(--clr-secondary);
+  font-family: var(--ff-base);
+  text-align: center;
 }
 
 
-.active {
+.display {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-primary);
+}
+
+.display > input {
+  border: 0;
+  width:120px;
+  font-size: var(--fs-primary);
+}
+
+.display > input:first-child {
+  padding-left:30px;
+}
+
+.display.active {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;    
   pointer-events: none;
+}
+
+.info {
+  position: absolute;
+  bottom: 10rem;
+  display: flex;
+  gap: 2rem;
+}
+
+body:has(.active) > .info {
+  display: none;
 }

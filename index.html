@@ -7,16 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simply Pomo</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <main>
-    <div class="display">
-      <input type="number" min="0" max="59" id="minutes-input" value="25">
-      :
-      <input type="number" min="1" max="59" id="seconds-input" value="00">
-    </div>
-  </main>
+  <div class="display">
+    <input type="number" min="0" max="59" id="minutes-input" value="25">
+    :
+    <input type="number" min="1" max="59" id="seconds-input" value="00">
+  </div>
+  <div class="info">
+    <code>SPC - start/pause</code>
+    <code>r - reset to 25 minutes</code>
+    <code>b - a 5 minutes break</code>
+  </div>
   <script src="app.js"></script>
 </body>
 
