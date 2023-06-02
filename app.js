@@ -5,7 +5,6 @@ const minutesInput = document.getElementById("minutes-input")
 let isPaused = true;
 let interval;
 
-
 const activate = () => {
   secondsInput.readOnly = isPaused
   minutesInput.readOnly = isPaused
@@ -13,13 +12,14 @@ const activate = () => {
   if (isPaused) {
     isPaused = false
 
-    let mins = minutesInput.value
-    let secs = secondsInput.value
-    duration = (mins * 60) + parseInt(secs)
+    const mins = minutesInput.value
+    const secs = secondsInput.value
+    const duration = (mins * 60) + parseInt(secs)
 
     startTimer(duration)
   } else {
     isPaused = true
+
     clearInterval(interval)
     displayElement.classList.remove("active")
   }
@@ -33,12 +33,14 @@ const convertTime = (time) => {
 
 const startTimer = (duration) => {
   if (isPaused) return;
+  const startTime = Math.round(Date.now() / 1000)
 
   interval = setInterval(() => {
-    duration -= 1
+    const secondsDifference = (Math.round(Date.now() / 1000) - startTime)
+    const remainingTime = duration - secondsDifference
     displayElement.classList.add("active")
 
-    const { minutes, seconds } = convertTime(duration)
+    const { minutes, seconds } = convertTime(remainingTime)
     minutesInput.value = String(minutes).padStart(2, '0')
     secondsInput.value = String(seconds).padStart(2, '0')
   }, 1000)
